@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Ext JS!</title>
+       <link rel="stylesheet" type="text/css" href="../resources/css/ext-all.css">
+       <script type="text/javascript" src="../ext-all.js"></script>     
+
+        <script language="javascript">
+        Ext.onReady(function(){
+            Ext.create('Ext.container.Container', {
+                renderTo     : Ext.getBody(),
+                bodyPadding  : 10,
+                title        : 'Main Container',
+                layout       : 'column',
+                items        :[
+                    {
+                        xtype:'image',
+                        name:'my image',
+                        src:'images/logo.png',
+                        width:200,
+                        height:80
+
+                    },
+                    {
+                        xtype:'container',
+                        height:80, 
+                        columnWidth:1,
+                        cls:'usertxt',
+                        html:"Welcome <b>User</b> | 06/03/2015 | Bangalore"
+                    },
+                    {
+                        xtype: 'buttongroup',
+                        title: 'Clipboard',
+                        columns:1,
+                        width:120,
+                        cls:'btngrp',
+                        items: 
+                        [
+                            {
+                            text: 'Facebook', iconCls: 'fbicon'
+                            },
+                            {
+                            text: 'Twitter', iconCls: 'twicon'
+                            },
+                            {
+                            text: 'Linked In', iconCls: 'inicon'
+                            }
+                        ]
+                    }                 
+                ]
+            });
+
+            
+        });
+
+        </script>
+        <style type="text/css">
+        .usertxt
+        {
+            font-family:Calibri;
+            font-size:16px;
+            padding:5px 0px 0px 15px;
+        }
+        .usertxt div
+        {
+            vertical-align:middle !important; 
+        }
+        .buttonset{
+            line-height:26px;
+        }
+        .fbicon
+        {
+            background:url('images/fbicon.png') no-repeat center left;
+           
+        }
+        .twicon
+        {
+            background:url('images/twicon.png') no-repeat center left;
+        }
+        .inicon
+        {
+            background:url('images/inicon.png') no-repeat center left;
+        }
+        .btngrp .x-btn-inner
+        {
+             font-size:13px;
+        }
+        .btngrp .x-btn-wrap
+        {
+             padding-left:10px;
+        }
+        </style>
+
+    </head>
+    <body></body>
+</html>

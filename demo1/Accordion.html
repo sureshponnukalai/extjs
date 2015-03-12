@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Ext JS!</title>
+       <link rel="stylesheet" type="text/css" href="../resources/css/ext-all.css">
+       <script type="text/javascript" src="../ext-all.js"></script>     
+
+        <script language="javascript">
+        Ext.onReady(function(){
+
+           Ext.create('Ext.panel.Panel', {
+                title: 'Accordion Layout',
+                width: 300,
+                height:300,
+                defaults: {
+                    // applied to each contained panel
+                    bodyStyle: 'padding:15px',
+                    autoScroll: true
+                },
+                layout: {
+                    // layout-specific configs go here
+                    type: 'accordion',
+                    titleCollapse: false,
+                    animate: true,                    
+                    activeOnTop: false
+                },
+                
+                items: [{
+                    title: 'Panel 1',
+                    html: '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </p><p>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. </p>'
+                },{
+                    title: 'Panel 2',
+                    html: '<p>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. </p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </p>'
+                },{
+                    title: 'Panel 3',
+                    html: 'Panel content!'
+                }],
+                renderTo: Ext.getBody()
+            });
+
+
+            /*Ext.create('Ext.Panel', {
+                width: 500,
+                height: 400,
+                title: "AnchorLayout Panel",
+                layout: 'anchor',
+                renderTo: Ext.getBody(),
+                items: [
+                    {
+                        xtype: 'panel',
+                        title: '75% Width and 20% Height',
+                        anchor: '75% 70%'
+                    },
+                    {
+                        xtype: 'panel',
+                        title: 'Offset -300 Width & -200 Height',
+                        anchor: '-300 -200'     
+                    },
+                    {
+                        xtype: 'panel',
+                        title: 'Mixed Offset and Percent',
+                        anchor: '-250 20%'
+                    }
+                ]
+            });*/
+           
+  
+            
+        });
+
+        </script>
+        <style type="text/css">
+        body{
+        padding:0px 10px;
+        }
+        </style>
+
+    </head>
+    <body></body>
+</html>

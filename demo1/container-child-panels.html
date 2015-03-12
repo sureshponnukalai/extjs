@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Ext JS!</title>
+       <link rel="stylesheet" type="text/css" href="../resources/css/ext-all.css">
+       <script type="text/javascript" src="../ext-all.js"></script>     
+
+        <script language="javascript">
+        Ext.onReady(function(){
+            Ext.create('Ext.panel.Panel', {
+                renderTo     : Ext.getBody(),
+                bodyPadding  : 10,
+                title        : 'Main Container',
+                layout       : 'column',
+                items        :[
+                    {
+                        xtype:'panel',
+                        title:'Left Side Panel',
+                        height:300,
+                        columnWidth:0.4,
+                        bodyCls:'welmsgbg',
+                        html:"<p>Hi! I am the left Side panel</p>"
+
+                    },
+                    {
+                        xtype:'splitter',
+                        columnWidth:0.2,
+                    },
+
+                    {
+                        xtype:'panel',
+                        title:'Right Side Panel',
+                        height:300,
+                        columnWidth:0.4,
+                        bodyCls:'welmsg',
+                        html:"<p>Hi! I am the Right Side panel</p>"
+
+                    }
+                 
+                ]
+            });
+            
+        });
+
+
+        </script>
+        <style type="text/css">
+        .welmsg
+        {
+            font-size:20px;
+            font-family:Calibri;
+            font-style:italic; 
+            font-weight:700;
+        }
+        .welmsgbg{
+            background-color:#ff0000;
+        }
+        .welmsgbg p{
+            color:#fff;
+            font-size:20px;
+        }
+        </style>
+    </head>
+    <body></body>
+</html>

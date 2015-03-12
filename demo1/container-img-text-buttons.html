@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Ext JS!</title>
+       <link rel="stylesheet" type="text/css" href="../resources/css/ext-all.css">
+       <script type="text/javascript" src="../ext-all.js"></script>     
+
+        <script language="javascript">
+        Ext.onReady(function(){
+            Ext.create('Ext.container.Container', {
+                renderTo     : Ext.getBody(),
+                bodyPadding  : 10,
+                title        : 'Main Container',
+                layout       : 'column',
+                items        :[
+                    {
+                        xtype:'image',
+                        name:'my image',
+                        src:'images/logo.png',
+                        width:200,
+                        height:80
+
+                    },
+                    {
+                        xtype:'container',
+                        height:80, 
+                        columnWidth:1,
+                        cls:'usertxt',
+                        html:"Welcome <b>User</b> | 06/03/2015 | Bangalore"
+                    },
+                    {
+                        xtype:'container',
+                        width:150,
+                        cls:'buttonset',
+                        items:[
+                            {
+                                xtype:'button',
+                                width:80,
+                                text: 'About Us',        
+                                handler: function() {                    
+                                     alert('You clicked the button!');
+                                     }  
+                            },
+                            {
+                                xtype:'button',
+                                width:80,
+                                text: 'Products',        
+                                handler: function() {
+                                     alert('You clicked the button!');
+                                     }  
+                            },
+                            {
+                                xtype:'button',
+                                width:80,
+                                text: 'Contact Us',        
+                                handler: function() {
+                                     alert('You clicked the button!');
+                                     }  
+                            }
+                        ]
+                    }                  
+                 
+                ]
+            });
+            
+        });
+
+
+        </script>
+        <style type="text/css">
+        .usertxt
+        {
+            font-family:Calibri;
+            font-size:16px;
+            padding:5px 0px 0px 15px;
+        }
+        .usertxt div
+        {
+            vertical-align:middle !important; 
+        }
+        .buttonset{
+            line-height:26px;
+        }
+        </style>
+
+    </head>
+    <body></body>
+</html>

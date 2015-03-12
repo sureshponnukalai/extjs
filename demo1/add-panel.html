@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Ext JS!</title>
+       <link rel="stylesheet" type="text/css" href="../resources/css/ext-all.css">
+       <script type="text/javascript" src="../ext-all.js"></script>     
+
+        <script language="javascript">
+        Ext.onReady(function(){
+            console.log("This is just Beginning. Longway to Go!");
+        	Ext.Msg.alert("Welcome To EXT JS");
+            Ext.create('Ext.panel.Panel', {
+                renderTo     : Ext.getBody(),
+                height       : 150,
+                bodyCls      : "welmsgbg",
+                bodyPadding  : 10,
+                title        : 'Hello World',
+                html         : '<p>This is my first program started with EXT JS. I am very much interested to learn this and implement it in a good way.</p>'
+            });
+            Ext.create('Ext.panel.Panel', {
+                renderTo     : Ext.getBody(),
+                height       : 150,
+                bodyPadding  : 10,
+                title        : 'Hello World',
+                html         : '<p class="welmsg">One More panel I have added here for testing purpose and alignment purpose</p>'
+            });
+        });
+
+
+        </script>
+        <style type="text/css">
+        .welmsg
+        {
+            font-size:20px;
+            font-family:Calibri;
+            font-style:italic; 
+            font-weight:700;
+        }
+        .welmsgbg{
+            background-color:#ff0000;
+        }
+        .welmsgbg p{
+            color:#fff;
+            font-size:20px;
+        }
+        </style>
+    </head>
+    <body></body>
+</html>

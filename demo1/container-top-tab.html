@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Ext JS!</title>
+       <link rel="stylesheet" type="text/css" href="../resources/css/ext-all.css">
+       <script type="text/javascript" src="../ext-all.js"></script>     
+
+        <script language="javascript">
+        Ext.onReady(function(){
+
+           var newbtn = Ext.create('Ext.Container', {
+    renderTo: Ext.getBody(),
+    height:550,
+    layout: {
+    type: 'vbox',
+    align: 'center', // or 'right'
+    pack: 'center', // controls vertical align
+    defaultMargins: 5
+    },
+    items   : [
+        {
+            xtype: 'button',            
+            text: 'Click Here to View My Actual Work!',
+            scale:'large',        
+                            handler: function() {
+                                newbtn.hide();
+                                toppanel.show();
+                                btmpanel.show();
+                                } 
+        }
+    ]
+});
+           
+            
+
+            Ext.define('sampledata', {
+                    extend: 'Ext.data.Model',
+                    fields: [ 'name', 'email','phone','position', 'remarks' ]
+            });
+            var userStore = Ext.create('Ext.data.Store', {
+                model: 'sampledata',
+                data: [
+                    { name: 'Sagar Panda', email: 'spanda@hcl.com', phone:'9876543210', position: 'Technical Lead', remarks:'Simple Information Goes here.' },
+                    { name: 'Poornima', email: 'poornima@hcl.com', phone:'1234567890', position: 'Junior Developer', remarks:'Simple Information Goes here.' },
+                    { name: 'Ashokkumar Sivagnanam', email: 'asivagnanam@hcl.com', phone:'7839347590', position: 'Technical Lead', remarks:'Simple Information Goes here.' },
+                    { name: 'Suresh Ponnukalai', email: 'suresh_p@hcl.com', phone:'9883446776', position: 'Technical Lead', remarks:'Simple Information Goes here.' },
+                    { name: 'Sagar Panda', email: 'spanda@hcl.com', phone:'9876543210', position: 'Technical Lead', remarks:'Simple Information Goes here.' },
+                    { name: 'Poornima', email: 'poornima@hcl.com', phone:'1234567890', position: 'Junior Developer', remarks:'Simple Information Goes here.' },
+                    { name: 'Ashokkumar Sivagnanam', email: 'asivagnanam@hcl.com', phone:'7839347590', position: 'Technical Lead', remarks:'Simple Information Goes here.' },
+                    { name: 'Suresh Ponnukalai', email: 'suresh_p@hcl.com', phone:'9883446776', position: 'Technical Lead', remarks:'Simple Information Goes here.' },
+                    { name: 'Sagar Panda', email: 'spanda@hcl.com', phone:'9876543210', position: 'Technical Lead', remarks:'Simple Information Goes here.' },
+                    { name: 'Poornima', email: 'poornima@hcl.com', phone:'1234567890', position: 'Junior Developer', remarks:'Simple Information Goes here.' },
+                    { name: 'Ashokkumar Sivagnanam', email: 'asivagnanam@hcl.com', phone:'7839347590', position: 'Technical Lead', remarks:'Simple Information Goes here.' },
+                    { name: 'Suresh Ponnukalai', email: 'suresh_p@hcl.com', phone:'9883446776', position: 'Technical Lead', remarks:'Simple Information Goes here.' }]
+            });
+            var states = Ext.create('Ext.data.Store', {
+                fields: ['abbr', 'name'],
+                data : [
+                    {"abbr":"AL", "name":"Alabama"},
+                    {"abbr":"AK", "name":"Alaska"},
+                    {"abbr":"AZ", "name":"Arizona"}
+                    //...
+                ]
+            });
+            var treestore = Ext.create('Ext.data.TreeStore', {
+                root: {
+                    expanded: true, 
+                    text:"Main",
+                    user:"",
+                    status:"", 
+                    children: [
+                        { text:"detention", leaf: true },
+                        { text:"homework", expanded: true, 
+                            children: [
+                                { text:"book report", leaf: true },
+                                { text:"alegrbra", leaf: true}
+                            ]
+                        },
+                        { text: "buy lottery tickets", leaf:true }
+                    ]
+                }
+            });
+
+            var toppanel = Ext.create('Ext.container.Container', {
+                renderTo     : Ext.getBody(),                 
+                bodyPadding  : 10,
+                title        : 'Main Container',
+                layout       : 'column',
+                items        :[
+                    {
+                        xtype:'image',
+                        name:'my image',
+                        src:'images/logo.png',
+                        width:200,
+                        height:88
+
+                    },
+                    {
+                        xtype:'container',
+                        height:80, 
+                        columnWidth:1,
+                        cls:'usertxt',
+                        html:"Welcome <b>User</b> | 06/03/2015 | Bangalore"
+                    },
+                    {
+                        xtype: 'buttongroup',
+                        title: 'Clipboard',
+                        columns:1,
+                        width:120,
+                        cls:'btngrp',
+                        items: 
+                        [
+                            {
+                            text: 'Facebook', iconCls: 'fbicon'
+                            },
+                            {
+                            text: 'Twitter', iconCls: 'twicon'
+                            },
+                            {
+                            text: 'Linked In', iconCls: 'inicon'
+                            }
+                        ]
+                    }                 
+                ]
+            });
+            
+            var btmpanel = Ext.create('Ext.tab.Panel', {
+                renderTo     : Ext.getBody(),
+                height       :300,
+                xtype        :"panel",
+                items        :[
+                    {                        
+                        title:'First Tab',
+                        xtype:'grid',
+                        store: userStore,
+                        width: 600,
+                        height: 100,
+                        columns: [
+                            {
+                                text: 'Employee Name',
+                                width: 200,
+                                sortable: false,
+                                hideable: false,
+                                dataIndex: 'name'
+                            },                            
+                            {
+                                text: 'Email Address',
+                                width: 200,
+                                dataIndex: 'email'
+                            },
+                            {
+                                text: 'Phone Number',
+                                width: 200,
+                                sortable: false,
+                                hideable: false,
+                                dataIndex: 'name'
+                            },
+                            {
+                                text: 'Position Held',                                
+                                dataIndex: 'position',
+                                width:250
+                            },
+                            {
+                                text: 'Remarks/Comments',                                
+                                dataIndex: 'remarks',
+                                flex:1
+                            }
+                        ]
+                        //html:'<h1>First Tab</h1><p>First Tab Content Goes Here.</p>'
+                    },
+                    {
+                        title:'Second Tab',
+                        bodyPadding:10,
+                        html:'<h1>Second Tab</h1><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </p><p>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. </p>'
+                    }, 
+                    {
+                        title:'Third Tab',
+                        bodyPadding:10,
+                        width:400,
+                        xtype:'form',
+                        layout:'form',                        
+                        items: [
+                            {xtype: 'textfield', fieldLabel: 'First Name', name: 'fname'},
+                            {xtype: 'textfield', fieldLabel: 'Last Name', name: 'lname'},
+                            {xtype: 'datefield', fieldLabel: 'From', name: 'fromdate'},
+                            {xtype: 'datefield', fieldLabel: 'To', name: 'todate'},
+                            {xtype: 'textareafield', fieldLabel: 'Message', name: 'msg',grow:true},
+                            {xtype: 'combobox', fieldLabel: 'State', store:states, name: 'state'}
+                        ],
+                        buttons: [
+                           {text:'Submit'},
+                           {text:'Cancel'}
+                        ]
+                        //html:'<h1>Second Tab</h1><p>Second Tab Content Goes Here.</p>'
+                    },
+                    {
+                        title:'Fourth Tab',
+                        bodyPadding:10,
+                        html:'<h1>Fourth Tab</h1><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </p><p>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. </p>'
+                    },
+                    {
+                        title:'Fifth Tab',
+                        xtype:'treepanel',
+                        width: 200,
+                        height: 200,
+                        store: treestore,
+                        rootVisible: true
+                       // html:'<h1>Fifth Tab</h1><p>Fifth Tab Content Goes Here.</p>'
+                    }                
+                ]
+            });
+toppanel.hide();  
+btmpanel.hide();
+            
+
+        /*Ext.create('Ext.data.Store',{
+            storeId:'simpledata',
+            fields:['name','email','position'],
+            data:{'items':[
+                    {name:'Sagar Panda', email:'sagarpanda@hcl.com',position:'Technical Lead'},
+                    {name:'Poornima', email:'poornima@hcl.com',position:'Junior Developer'},
+                    {name:'Ashokkumar', email:'asivagnanam@hcl.com',position:'Technical Lead'},
+                    {name:'Suresh', email:'suresh_p@hcl.com',position:'Technical Lead'}
+                ]},
+            proxy:{
+                type:'memeory',
+                reader:{type:'json', root:'items'}
+            }    
+        });
+        Ext.create('Ext.grid.panel',{
+            title:'My Sample Grid',
+            store: Ext.data.StoreManager.lookup('simpledata'),
+            columns:[
+            {text:'Employee Name', dataIndex:'name'},
+            {text:'Email Address', dataIndex:'email'},
+            {text:'Position Held', dataIndex:'position'}
+            ],
+            height:250,
+            renderTo:Ext.getBody()
+        });*/
+            
+        });
+
+        </script>
+        <style type="text/css">
+        body{
+        padding:0px 10px;
+        }
+        .usertxt
+        {
+            font-family:Calibri;
+            font-size:16px;
+            padding:5px 0px 0px 15px;
+        }
+        .usertxt div
+        {
+            vertical-align:middle !important; 
+        }
+        .buttonset{
+            line-height:26px;
+        }
+        .fbicon
+        {
+            background:url('images/fbicon.png') no-repeat center left;
+           
+        }
+        .twicon
+        {
+            background:url('images/twicon.png') no-repeat center left;
+        }
+        .inicon
+        {
+            background:url('images/inicon.png') no-repeat center left;
+        }
+        .btngrp .x-btn-inner
+        {
+             font-size:12px;
+        }
+        .btngrp .x-btn-wrap
+        {
+             padding-left:10px;
+        }
+        .x-btn-default-large-noicon
+        {
+            background:#ff0000;                        
+        }
+        .x-btn-default-large .x-btn-inner
+        {
+            color:#fff;
+            font-size:16px;
+            font-weight:700;
+            padding-left:30px;
+            padding-right:30px;
+        }
+        </style>
+
+    </head>
+    <body></body>
+</html>
